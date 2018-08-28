@@ -5,7 +5,7 @@ const Input = ({prepend, append, value, onChange}) => {
     if (text!=='') {
       return (
         <div className="input-group-prepend">
-          <span className="input-group-text" id="basic-addon1">{text}</span>
+          <span className="input-group-text">{text}</span>
         </div>
       );
     }
@@ -15,7 +15,7 @@ const Input = ({prepend, append, value, onChange}) => {
     if (text!=='') {
       return (
         <div className="input-group-append">
-          <span className="input-group-text" id="basic-addon1">{text}</span>
+          <span className="input-group-text">{text}</span>
         </div>
       );
     }

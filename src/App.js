@@ -10,10 +10,9 @@ class App extends Component {
     let state={};
     try {
       if(window.location.hash) {
-        let start = window.location.hash;
-        start = atob(start.substr(1));
-        console.log(start);
-        state = JSON.parse(start);
+        let start=window.location.hash;
+        start=atob(start.substr(1));
+        state=JSON.parse(start);
       } else {
         state=JSON.parse(localStorage.getItem('buysell'));
       }
@@ -21,7 +20,7 @@ class App extends Component {
       state=Object.assign({
         price: 50,
         profitPercentage: 3,
-        stoplossPercentage: .5,
+        stoplossPercentage: 1,
         shares: 1,
         commission: 4.95,
         ticker: ''
@@ -34,20 +33,22 @@ class App extends Component {
     this.calculateProfitShares=this.calculateProfitShares.bind(this);
     this.calculateDoubleProfitShares=this.calculateDoubleProfitShares.bind(this);
     this.generateLink=this.generateLink.bind(this);
+    this.copyToClipboard=this.copyToClipboard.bind(this);
   }
 
   onRetrievePrice(event) {
     event.preventDefault();
-    axios.get(`https://api.iextrading.com/1.0/stock/${this.state.ticker.toUpperCase()}/quote`)
+    axios.get(`https://api.iextrading.com/1.0/stock/${this.state.ticker.toUpperCase()}/price`)
     .then(result => {
-      this.setState({price: result.data.iexRealtimePrice});
+      this.setState({price: result.data});
     });
   }
 
   generateLink() {
     let objJsonStr = JSON.stringify(this.state);
     let objJsonB64 = btoa(objJsonStr);
-    return `#${objJsonB64}`;
+    const url = window.location.href.split('#')[0]
+    return `${url}#${objJsonB64}`;
   }
 
   onChange(event, key) {
@@ -93,6 +94,18 @@ class App extends Component {
     this.setState({shares:i});
   }
 
+  copyToClipboard() {
+    try {
+      const link = this.refs.link;
+      link.select();
+      document.execCommand('copy');
+      link.blur();
+    }
+    catch (error) {
+      // fail silent
+    }
+  }
+
   render() {
 
     localStorage.setItem('buysell',JSON.stringify(this.state));
@@ -106,16 +119,16 @@ class App extends Component {
     const takeProfitAmount=(price/100*profitPercentage)+price;
     const stoplossAmount=price/100*(100-stoplossPercentage)
     const totalAmount=price*shares;
-
     const profitAfterCommissions=shares*(price/100*profitPercentage)-(2*commission);
     const lossAfterCommissions=shares*(price/100*stoplossPercentage)+(2*commission);
-
 
     let profitAlert = 'list-group-item';
     if (profitAfterCommissions<0) {
       profitAlert += ' list-group-item-danger';
     } else if (profitAfterCommissions<(lossAfterCommissions)) {
       profitAlert += ' list-group-item-warning';
+    } else {
+      profitAlert += '  list-group-item-primary';
     }
 
     return (
@@ -131,12 +144,11 @@ class App extends Component {
         <div className='container'>
           <div className='row'>
             <div className='col-lg'>
-              <div className="card">
+              <div className="card text-white bg-dark mb-3">
                 <div className="card-body">
                   <h5 className="card-title">Profit/Stop Loss</h5>
                   <h6 className="card-subtitle mb-2 text-muted">Set your profit and stop loss percentages</h6>
-                  <p className="card-text">This is determined by your support and resistance. <a href="https://learn-plan-profit.teachable.com?affcode=140060_powg0qym
-" rel="noopener noreferrer">Learn more about support and resistance</a></p>
+                  <p className="card-text">This is determined by your support and resistance. <a href="https://learn-plan-profit.teachable.com?affcode=140060_powg0qym" rel="noopener noreferrer" target="_blank">Learn more about support and resistance</a></p>
                   <Input
                     prepend='Profit'
                     append='%'
@@ -151,11 +163,11 @@ class App extends Component {
                   />
                 </div>
                 <ul className="list-group list-group-flush">
-                  <li className="list-group-item">
+                  <li className="list-group-item  list-group-item-dark">
                     <h6>Take your profits at</h6>
                     ${parseFloat(takeProfitAmount).toFixed(3)}
                   </li>
-                  <li className="list-group-item">
+                  <li className="list-group-item list-group-item-dark">
                     <h6>Set your stop loss at</h6>
                     ${parseFloat(stoplossAmount).toFixed(3)}
                   </li>
@@ -164,7 +176,7 @@ class App extends Component {
               <br/>
             </div>
             <div className='col-lg'>
-              <div className="card">
+              <div className="card text-white bg-dark mb-3">
                 <div className="card-body">
                   <h5 className="card-title">Stock Price</h5>
                   <h6 className="card-subtitle mb-2 text-muted">Set the price you purchases your stock at</h6>
@@ -193,7 +205,7 @@ class App extends Component {
               <br/>
             </div>
             <div className='col-lg'>
-              <div className="card">
+              <div className="card text-white bg-dark mb-3">
                 <div className="card-body">
                   <h5 className="card-title">Commission &amp; Shares</h5>
                   <h6 className="card-subtitle mb-2 text-muted">Set shares count and commission amount</h6>
@@ -216,7 +228,7 @@ class App extends Component {
                   />
                 </div>
                 <ul className="list-group list-group-flush">
-                  <li className="list-group-item">
+                  <li className="list-group-item list-group-item-dark">
                     <h6>Position Size</h6>
                     ${totalAmount.toFixed(2)}
                   </li>
@@ -224,7 +236,7 @@ class App extends Component {
                     <h6>Potential Profit</h6>
                     ${profitAfterCommissions.toFixed(3)}
                   </li>
-                  <li className="list-group-item">
+                  <li className="list-group-item list-group-item-dark">
                     <h6>Potential Loss</h6>
                     ${lossAfterCommissions.toFixed(2)}
                   </li>
@@ -233,11 +245,27 @@ class App extends Component {
             </div>
           </div>
           <br/>
-          <div className="alert alert-info" role="alert">
-            Share these settings with a friend? <a href={this.generateLink()} className="alert-link">Use this link</a>.
+
+          <div className="card text-white bg-info mb-3">
+            <div className="card-body">
+              <h5 className="card-title">Share with Friends</h5>
+              <h6 className="card-subtitle mb-2">Use this link to share the above settings with friends</h6>
+
+              <div className="input-group mb-3">
+                <input
+                  type='text'
+                  ref='link'
+                  onChange={(event) => { event.preventDefault() }}
+                  className="form-control"
+                  value={this.generateLink()}
+                />
+                <div className="input-group-append">
+                  <button type="submit" className="btn btn-secondary mb-2" onClick={this.copyToClipboard}>Copy to clipboard</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <br/>
       </div>
     );
   }

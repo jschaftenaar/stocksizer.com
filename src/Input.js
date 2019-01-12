@@ -37,5 +37,3 @@ const Input = ({prepend, append, value, onChange}) => {
 }
 
 export default Input;
-
-

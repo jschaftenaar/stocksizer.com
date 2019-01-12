@@ -1,0 +1,26 @@
+@import "../colors.scss";  
+
+.menu {
+  flex: 0 0 200px;
+  background-color: $color-background;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  border-right: 1px solid $color-border-subtle;
+  li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    a {
+      color: $color-text;
+      padding: 6px 12px;
+      display: block;
+      text-decoration: none;
+      &:hover {
+        color: $color-hover-text;
+        background-color: $color-hover;
+      }
+    }
+  }
+}

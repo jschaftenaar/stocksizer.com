@@ -1,0 +1,23 @@
+/* colors taken from IBM Carbon's Design System */
+$color-text: #152935;
+$color-text-subtle: #5a6872;
+$color-text-placeholder: #cdd1d4;
+$color-text-interactive: #3d70b2;
+$color-text-support: #5596e6;
+$color-text-brand: #00b4a0;
+
+$color-text-inverse: #ffffff;
+$color-background-inverse: #272d33;
+$color-background: #fff;
+$color-background-page: #f4f7fb;
+$color-border-subtle: #dfe3e6;
+$color-border: #8897a2;
+$color-border-contrast: #5a6872;
+
+$color-hover: darken($color-text-support, 15%);
+$color-hover-text: $color-text-inverse;
+
+$color-error: #e0182d;
+$color-success: #5aa700;
+$color-warning: #efc100;
+$color-information: #5aaafa;

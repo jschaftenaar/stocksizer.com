@@ -6,7 +6,7 @@ import Input from '../Input.js';
 const Add = () => {
   return (
     <div className={style.wrapper}>
-      <ContentHeader title='Size Stock Position'/>
+      <ContentHeader title='Size Position'/>
       <div className={style.content}>
         <Input/>
         Ticker

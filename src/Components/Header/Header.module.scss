@@ -1,4 +1,4 @@
-@import "../colors.scss";  
+@import "../../colors.scss";  
 
 .header {
   background-color: $color-background-inverse;
@@ -8,6 +8,7 @@
 }
 
 .title {
+  color: $color-text-placeholder;
   font-size: 1.5em;
   line-height: 50px;
   vertical-align: center;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Menu from './Menu';
-import Header from './Header';
+import Menu from './Containers/Menu';
+import Header from './Components/Header';
 import style from './App.module.scss';
 import Router from './Router.js';
 

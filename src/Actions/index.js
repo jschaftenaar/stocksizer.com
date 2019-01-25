@@ -3,3 +3,7 @@ export const Settings = {
   SHOW_COMPLETED: 'SHOW_COMPLETED',
   SHOW_ACTIVE: 'SHOW_ACTIVE'
 };
+
+export const Positions = {
+
+};

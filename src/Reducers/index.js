@@ -1,6 +1,8 @@
-import { combineReducers } from 'redux'
-import SettingsReducer from './SettingsReducer.js'
+import { combineReducers } from 'redux';
+import settings from './SettingsReducer.js';
+import positions from './PositionsReducer.js';
 
 export default combineReducers({
-  SettingsReducer
+  settings,
+  positions
 });

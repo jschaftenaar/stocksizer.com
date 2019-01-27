@@ -1,9 +1,9 @@
 import React from 'react';
-import style from './Add.module.scss';
+import style from './Size.module.scss';
 import ContentHeader from '../ContentHeader';
 import Input from '../Input.js';
 
-const Add = () => {
+const Size = () => {
   return (
     <div className={style.wrapper}>
       <ContentHeader title='Size Position'/>
@@ -20,4 +20,4 @@ const Add = () => {
   );
 }
 
-export default Add;
+export default Size;

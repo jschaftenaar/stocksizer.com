@@ -4,6 +4,4 @@ export const Settings = {
   SHOW_ACTIVE: 'SHOW_ACTIVE'
 };
 
-export const Positions = {
-
-};
+export const Positions = {};

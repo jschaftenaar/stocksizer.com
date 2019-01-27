@@ -3,10 +3,10 @@ import { PropTypes } from 'prop-types';
 import style from './style.module.scss';
 import ContentHeader from '../ContentHeader';
 
-const Sizer = ({title}) => {
+const Position = ({ticker}) => {
   return (
     <div className={style.wrapper}>
-      <ContentHeader title={title}/>
+      <ContentHeader title={ticker}/>
       <div className={style.content}>
         <p>Some content goes here</p>
       </div>
@@ -14,8 +14,8 @@ const Sizer = ({title}) => {
   );
 }
 
-Sizer.propTypes = {
-  title: PropTypes.string.isRequired
+Position.propTypes = {
+  ticker: PropTypes.string.isRequired
 };
 
-export default Sizer;
+export default Position;

@@ -1,16 +1,16 @@
 import React from "react";
 import {  Route } from "react-router-dom";
 import Overview from './Containers/Overview';
-import Add from './Components/Add';
+import Size from './Components/Size';
 import Settings from './Components/Settings';
-import Sizer from './Containers/Sizer';
+import Position from './Containers/Position';
 
 const Router = () => (
   <React.Fragment>
     <Route path="/" exact component={Overview} />
     <Route path="/settings/" component={Settings} />
-    <Route path="/position/:id" component={Sizer} />
-    <Route path="/add/" component={Add} />
+    <Route path="/position/:uuid" component={Position} />
+    <Route path="/size/" component={Size} />
   </React.Fragment>
 );
 

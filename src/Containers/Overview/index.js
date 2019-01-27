@@ -3,13 +3,6 @@ import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import Overview from '../../Components/Overview';
 
-function mapStateToProps(state) {
-  // console.log(state);
-  // logic to only pass what is needed for the view
-  return state;
-}
+function mapStateToProps(state) { return {}; }
 
 export default connect(mapStateToProps)(Overview);
-
-
-

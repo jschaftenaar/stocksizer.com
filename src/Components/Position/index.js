@@ -1,16 +1,13 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import style from './style.module.scss';
-import ContentHeader from '../ContentHeader';
+import Content from '../Content';
 
 const Position = ({ticker}) => {
   return (
-    <div className={style.wrapper}>
-      <ContentHeader title={ticker}/>
-      <div className={style.content}>
+  	<Content title={ticker}>
         <p>Some content goes here</p>
-      </div>
-    </div>
+    </Content>
   );
 }
 

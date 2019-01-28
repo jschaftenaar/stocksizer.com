@@ -1,9 +1,17 @@
 @import "../../colors.scss"; 
 
+.wrapper {
+  width: 100%
+}
+
 .title {
   border-bottom: 1px solid $color-border-subtle;
   background-color: $color-background;
   padding: 16px 32px;
   margin: 0;
   color: $color-text-subtle;
+}
+
+.content {
+  margin: 32px;
 }

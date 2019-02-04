@@ -30,11 +30,10 @@ const PositionPercentages = ({
 };
 
 PositionPercentages.defaultProps = {
-  profitChange: () => {},
   profit: '',
   stoploss: '',
-  stoplossChange: () => {}
+  stoplossChange: () => {},
+  profitChange: () => {}
 }
-
 
 export default PositionPercentages

@@ -1,6 +1,5 @@
-import React from 'react';
+import React from 'react'; // eslint-disable-line no-unused-vars
 import { connect } from 'react-redux';
-import { PropTypes } from 'prop-types';
 import Overview from '../../Components/Overview';
 
 function mapStateToProps(state) { return {}; }

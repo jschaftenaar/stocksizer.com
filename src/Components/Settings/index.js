@@ -1,5 +1,4 @@
 import React from 'react';
-import style from './Settings.module.scss';
 import Content from '../Content';
 
 const Settings = () => {

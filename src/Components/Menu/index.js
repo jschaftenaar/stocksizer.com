@@ -12,7 +12,7 @@ const Menu = (props) => {
         {item.ticker}
         &nbsp;
         <sup>
-          {item.position}
+          {item.positionType}
         </sup>
       </Link>
     </li>
@@ -36,7 +36,7 @@ Menu.propTypes = {
   positions: PropTypes.arrayOf(PropTypes.shape({
     ticker: PropTypes.string,
     uuid: PropTypes.string,
-    position: PropTypes.string
+    positionType: PropTypes.string
   })),
 };
 

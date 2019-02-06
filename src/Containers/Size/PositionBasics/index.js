@@ -2,11 +2,11 @@ import React from 'react'; // eslint-disable-line no-unused-vars
 import { connect } from 'react-redux';
 import PositionBasics from '../../../Components/Size/PositionBasics';
 import axios from 'axios';
-import { SizePositionChange, SizeTickerChange, SizeSetPriceLoading, SizeSetPrice } from '../../../Actions';
+import { SizePositionTypeChange, SizeTickerChange, SizeSetPriceLoading, SizeSetPrice } from '../../../Actions';
 
 const  mapStateToProps = ({size}, {match}) => {
   return {
-    position: size.position,
+    positionType: size.positionType,
     ticker: size.ticker,
     price: size.price
   };
@@ -18,7 +18,7 @@ const mapDispatchToProps = dispatch => {
     dispatch(value);
   };
   return {
-    positionChange: event => dispatch(SizePositionChange(event.target.value)),
+    positionTypeChange: event => dispatch(SizePositionTypeChange(event.target.value)),
     tickerChange: event => preventDefaultDispatch(event, SizeTickerChange(event.target.value)),
     priceChange: event => preventDefaultDispatch(event, SizeSetPrice(event.target.value)),
     onAction: (event, ticker) => {

@@ -7,11 +7,12 @@ import style from './Size.module.scss';
 import PropTypes from 'prop-types';
 
 const Size = ({
-  onAdd
+  onAdd,
+  position
 }) => {
   return (
     <Content title='Size Position'>
-      <form onSubmit={onAdd}>
+      <form onSubmit={(event) => onAdd(event, position)}>
         <div className="card-columns">
           <PositionBasics/>
           <PositionPercentages/>
@@ -28,11 +29,29 @@ const Size = ({
 }
 
 Size.defaultProps = {
-  onAdd: (event) => { event.preventDefault(); }
+  onAdd: (event) => {},
+  position: {
+    type: '',
+    ticker: '',
+    price: '',
+    profit: '',
+    stoploss: '',
+    shares: '',
+    commissions: ''
+  }
 }
 
 Size.propTypes = {
-  onAdd: PropTypes.func
+  onAdd: PropTypes.func,
+  position: PropTypes.shape({
+    type: PropTypes.string,
+    ticker: PropTypes.string,
+    price: PropTypes.string,
+    profit: PropTypes.string,
+    stoploss: PropTypes.string,
+    shares: PropTypes.string,
+    commissions: PropTypes.string
+  })
 };
 
 export default Size;

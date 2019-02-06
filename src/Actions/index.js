@@ -9,7 +9,7 @@ export const Settings = {
 export const Positions = {};
 
 export const Size = {
-  SET_POSITION: 'SIZE_POSITION_SET',
+  SET_POSITION_TYPE: 'SIZE_POSITION_SET',
   SET_TICKER: 'SIZE_TICKER_SET',
   SET_PRICE_LOADING: 'SIZE_SET_PRICE_LOADING',
   SET_PRICE: 'SIZE_SET_PRICE',
@@ -22,10 +22,9 @@ export const Size = {
 
 
 /* Action creators */
-
-export const SizePositionChange = position => ({
-  type: Size.SET_POSITION,
-  position
+export const SizePositionTypeChange = positionType => ({
+  type: Size.SET_POSITION_TYPE,
+  positionType
 });
 
 export const SizeTickerChange = ticker => ({
@@ -42,8 +41,9 @@ export const SizeSetPrice = price => ({
   price
 });
 
-export const SizeAddToPositions = () => ({
-  type: Size.ADD_TO_POSITIONS
+export const SizeAddToPositions = (position) => ({
+  type: Size.ADD_TO_POSITIONS,
+  position
 });
 
 export const SizeProfitChange = profit => ({

@@ -4,8 +4,8 @@ import Textinput from '../../Textinput';
 import Radioinput from '../../Radioinput';
 
 const PositionBasics = ({
-  positionChange,
-  position,
+  positionTypeChange,
+  positionType,
   ticker,
   tickerChange,
   onAction,
@@ -17,7 +17,7 @@ const PositionBasics = ({
       <div className="card-body">
         <h5 className="card-title">Position Type &amp; Price</h5>
         <Radioinput
-          value = {position}
+          value = {positionType}
           options = {[
             {
               value: 'long',
@@ -27,7 +27,7 @@ const PositionBasics = ({
               label: 'Short'
             }
           ]}
-          onChange={positionChange}
+          onChange={positionTypeChange}
           label='Position Type'
         />
         <Textinput
@@ -50,21 +50,21 @@ const PositionBasics = ({
 };
 
 PositionBasics.defaultProps = {
-  positionChange: () => {},
+  positionTypeChange: () => {},
   priceChange: () => {},
   tickerChange: () => {},
   price: '',
   ticker: '',
-  position: ''
+  positionType: ''
 };
 
 PositionBasics.propTypes = {
-  position: PropTypes.string,
+  positionType: PropTypes.string,
   ticker: PropTypes.string,
   tickerChange: PropTypes.func,
   price: PropTypes.string,
   priceChange: PropTypes.func,
-  positionSelect: PropTypes.func
+  positionTypeChange: PropTypes.func
 };
 
 export default PositionBasics;

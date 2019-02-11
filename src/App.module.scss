@@ -3,15 +3,13 @@
 .wrapper {
   margin: 0;
   padding: 0;
-  background-color: $color-background-page;
-  display: block;
-  height: 100vh;
-  width: 100vw;
 }
 
 .content {
   display: flex;
-  height: calc(100vh - 50px);
+  align-items: stretch;
   box-sizing: border-box;
+  align-content: strentch;
+  flex-wrap: wrap;
+  min-height: calc(100vh - 50px);
 }
-

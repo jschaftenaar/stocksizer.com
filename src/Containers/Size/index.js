@@ -2,7 +2,7 @@ import React from 'react'; // eslint-disable-line no-unused-vars
 import { connect } from 'react-redux';
 import Size from '../../Components/Size';
 import axios from 'axios';
-import { SizeAddToPositions } from '../../Actions';
+import { addToPositions } from '../../Actions/Size';
 
 const mapStateToProps = ({size}) => {
   return {
@@ -14,7 +14,7 @@ const mapDispatchToProps = dispatch => {
   return {
     onAdd: (event, position) => {
       event.preventDefault();
-      dispatch(SizeAddToPositions(position))
+      dispatch(addToPositions(position))
     }
   }
 };

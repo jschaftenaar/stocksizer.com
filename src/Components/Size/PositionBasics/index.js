@@ -16,6 +16,7 @@ const PositionBasics = ({
     <div className="card">
       <div className="card-body">
         <h5 className="card-title">Position Type &amp; Price</h5>
+        <h6 className="card-subtitle mb-2 text-muted">Set the price you purchases your stock at</h6>
         <Radioinput
           value = {positionType}
           options = {[
@@ -44,6 +45,7 @@ const PositionBasics = ({
           value={price}
           placeholder='Price'
         />
+        <p>Use the ticker symbol to retrieve the latest market price from iex</p>        
       </div>
     </div>
   );

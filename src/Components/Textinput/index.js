@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { id as randomId } from '../../Utils/Random';
 
-const Input = ({value, onChange, label, placeholder, actionLabel, onAction}) => {
+const Input = ({value, onChange, label, placeholder, actionLabel, onAction, appendLabel}) => {
   const id = randomId();
 
   const action = actionLabel!==''
@@ -10,6 +10,13 @@ const Input = ({value, onChange, label, placeholder, actionLabel, onAction}) => 
         <button type="submit" className="btn btn-primary mb-2" onClick={onAction}>{actionLabel}</button>
       </div>)
     : '';
+
+  const append = appendLabel !==''
+    ? (<div className="input-group-append">
+          <span className="input-group-text">{appendLabel}</span>
+      </div>)
+    : '';
+
 
   return (
     <div className="form-group row">
@@ -24,6 +31,7 @@ const Input = ({value, onChange, label, placeholder, actionLabel, onAction}) => 
           onChange={onChange}
         />
         {action}
+        {append}
       </div>
     </div>
   );
@@ -34,7 +42,8 @@ Input.defaultProps = {
   label: '',
   actionLabel: '',
   onChange: () => {},
-  onAction: () => {}
+  onAction: () => {},
+  appendLabel: ''
 };
 
 Input.propTypes = {
@@ -43,7 +52,8 @@ Input.propTypes = {
   label: PropTypes.node,
   onChange: PropTypes.func,
   actionLabel: PropTypes.node,
-  onAction: PropTypes.func
+  onAction: PropTypes.func,
+  append: PropTypes.node
 };
 
 export default Input;

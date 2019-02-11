@@ -2,7 +2,7 @@ import React from 'react'; // eslint-disable-line no-unused-vars
 import { connect } from 'react-redux';
 import PositionPercentages from '../../../Components/Size/PositionPercentages';
 import axios from 'axios';
-import { SizeProfitChange, SizeStoplossChange } from '../../../Actions';
+import { profitChange, stoplossChange } from '../../../Actions/Size';
 
 const  mapStateToProps = ({size}, {match}) => {
   return {
@@ -13,8 +13,8 @@ const  mapStateToProps = ({size}, {match}) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    profitChange: event => dispatch(SizeProfitChange(event.target.value)),
-    stoplossChange: event => dispatch(SizeStoplossChange(event.target.value)),
+    profitChange: event => dispatch(profitChange(event.target.value)),
+    stoplossChange: event => dispatch(stoplossChange(event.target.value)),
   }
 };
 

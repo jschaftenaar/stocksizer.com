@@ -18,7 +18,6 @@ const PositionsReducer = (
       let newArray = state.slice();
       action.position.uuid = uuid();
       newArray.push(action.position);
-      console.log(newArray);
       return newArray;
     default:
       return state

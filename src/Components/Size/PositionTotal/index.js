@@ -1,26 +1,35 @@
 import React from 'react';
 import style from './style.module.scss';
+import Textinput from '../../Textinput';
 
-const PositionTotal = () => {
+const PositionTotal = ({
+  shares,
+  commissions,
+  commissionsChange,
+  sharesChange
+}) => {
   return (
-      <div className="card">
-        <div className="card-body">
-          <h5 className="card-title">Commission &amp; Shares</h5>
-          <div className="form-group row">
-            <label htmlFor="inputShares" className="col-sm-6 col-form-label">Shares</label>
-            <div className="col-sm-6">
-              <input type="text" className="form-control" id="inputShares" placeholder="Shares"/>
-            </div>
-          </div>
-          <div className="form-group row">
-            <label htmlFor="inputCommissions" className="col-sm-6 col-form-label">Commissions</label>
-            <div className="col-sm-6">
-              <input type="text" className="form-control" id="inputCommissions" placeholder="Commissions"/>
-            </div>
-          </div>
+    <div className="card">
+      <div className="card-body">
+        <h5 className="card-title">Commission &amp; Shares</h5>
+        <h6 className="card-subtitle mb-2 text-muted">Set shares count and commission amount</h6>
+        <Textinput
+          label='Shares'
+          placeholder='Shares'
+          onChange={sharesChange}
+          value={shares}
+        />
 
-        </div>
-    </div>
+
+        <Textinput
+          label='Commissions'
+          placeholder='Commissions'
+          onChange={commissionsChange}
+          value={commissions}
+        />
+        <p className="card-text">Determine the position size, potential profit, and potential loses. To trade without commissions and increase your overal profits use <a href="https://share.robinhood.com/jeroens5" target="_blank" rel="noopener noreferrer">Robinhood</a></p>
+      </div>
+  </div>
   );
 };
 

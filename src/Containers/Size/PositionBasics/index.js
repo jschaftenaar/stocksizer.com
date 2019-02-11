@@ -2,7 +2,7 @@ import React from 'react'; // eslint-disable-line no-unused-vars
 import { connect } from 'react-redux';
 import PositionBasics from '../../../Components/Size/PositionBasics';
 import axios from 'axios';
-import { SizePositionTypeChange, SizeTickerChange, SizeSetPriceLoading, SizeSetPrice } from '../../../Actions';
+import { positionTypeChange, tickerChange, priceChange } from '../../../Actions/Size';
 
 const  mapStateToProps = ({size}, {match}) => {
   return {
@@ -18,16 +18,15 @@ const mapDispatchToProps = dispatch => {
     dispatch(value);
   };
   return {
-    positionTypeChange: event => dispatch(SizePositionTypeChange(event.target.value)),
-    tickerChange: event => preventDefaultDispatch(event, SizeTickerChange(event.target.value)),
-    priceChange: event => preventDefaultDispatch(event, SizeSetPrice(event.target.value)),
+    positionTypeChange: event => dispatch(positionTypeChange(event.target.value)),
+    tickerChange: event => preventDefaultDispatch(event,tickerChange(event.target.value)),
+    priceChange: event => preventDefaultDispatch(event, priceChange(event.target.value)),
     onAction: (event, ticker) => {
       event.preventDefault();
-      dispatch(SizeSetPriceLoading());
       const url = `https://api.iextrading.com/1.0/stock/${ticker.toUpperCase()}/price`;
       axios.get(url)
         .then(response => {
-          dispatch(SizeSetPrice(response.data.toString()));
+          dispatch(priceChange(response.data.toString()));
       });
     }
   }

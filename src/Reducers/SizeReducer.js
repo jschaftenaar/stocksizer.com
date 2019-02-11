@@ -1,6 +1,6 @@
 import { Size } from '../Actions'
 
-const SettingsReducer = (state = {positionType: 'long'} , action) => {
+const SettingsReducer = (state = {positionType: 'long'}, action) => {
   switch (action.type) {
     case Size.POSITION_TYPE_CHANGE:
       return Object.assign({}, state, { positionType: action.positionType });

@@ -19,8 +19,6 @@ const PositionTotal = ({
           onChange={sharesChange}
           value={shares}
         />
-
-
         <Textinput
           label='Commissions'
           placeholder='Commissions'

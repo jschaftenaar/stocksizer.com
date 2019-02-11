@@ -19,7 +19,7 @@ const mapDispatchToProps = dispatch => {
   };
   return {
     positionTypeChange: event => dispatch(positionTypeChange(event.target.value)),
-    tickerChange: event => preventDefaultDispatch(event,tickerChange(event.target.value)),
+    tickerChange: event => preventDefaultDispatch(event, tickerChange(event.target.value)),
     priceChange: event => preventDefaultDispatch(event, priceChange(event.target.value)),
     onAction: (event, ticker) => {
       event.preventDefault();

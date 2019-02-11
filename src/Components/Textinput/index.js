@@ -17,7 +17,6 @@ const Input = ({value, onChange, label, placeholder, actionLabel, onAction, appe
       </div>)
     : '';
 
-
   return (
     <div className="form-group row">
       <label htmlFor={id} className="col-sm-6 col-form-label">{label}</label>

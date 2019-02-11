@@ -9,10 +9,10 @@ class App extends Component {
     return (
       <div className={style.wrapper}>
         <Header/>
-          <div className={style.content}>
-            <Menu/>
-            <Router/>
-          </div>
+        <div className={style.content}>
+          <Menu/>
+          <Router/>
+        </div>
       </div>
     );
   }

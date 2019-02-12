@@ -4,9 +4,10 @@ import Size from '../../Components/Size';
 import axios from 'axios';
 import { addToPositions } from '../../Actions/Size';
 
-const mapStateToProps = ({size}) => {
+const mapStateToProps = ({size, settings}) => {
   return {
-    position: size
+    position: size,
+    settings
   }
 }
 

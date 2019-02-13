@@ -1,6 +1,11 @@
 /* action types */
 
 export const Settings = {
+  initialState: {
+    accountSize: 1000,
+    
+
+  },
   SHOW_ALL: 'SHOW_ALL',
   SHOW_COMPLETED: 'SHOW_COMPLETED',
   SHOW_ACTIVE: 'SHOW_ACTIVE'

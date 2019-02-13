@@ -15,9 +15,6 @@ const Settings = ({onSave, currentSettings}) => {
       <form onSubmit={(event) => onSave(event, currentSettings)}>
         <div className="card-columns">
 
-
-
-
           <div className="card">
             <div className="card-body">
               <h5 className="card-title">Account Details</h5>
@@ -27,7 +24,6 @@ const Settings = ({onSave, currentSettings}) => {
                 value={currentSettings.accountSize }
                 appendLabel={(<i className="fas fa-dollar-sign"></i>)}
                 onChange={(event) => { onChange(event, 'accountSize') } }
-
               />
             </div>
           </div>
@@ -38,22 +34,39 @@ const Settings = ({onSave, currentSettings}) => {
             <div className="card-body">
               <h5 className="card-title">Stop loss</h5>
 
-              set stop loss to % of your account 1% is common
-              1% of your account size.
 
-              set stop loss to % of your position size.
+              <Textinput
+                label='Account Stop loss percentage'
+                placeholder='account stop loss'
+                value={currentSettings.accountSize }
+                appendLabel={(<i className="fas fa-dollar-sign"></i>)}
+                onChange={(event) => { onChange(event, 'accountSize') } }
+              />
+
+
+              <Textinput
+                label='Position Stop loss percentage'
+                placeholder='position stop loss'
+                value={currentSettings.accountSize }
+                appendLabel={(<i className="fas fa-dollar-sign"></i>)}
+                onChange={(event) => { onChange(event, 'accountSize') } }
+              />
 
             </div>
           </div>
-
-
-
 
           <div className="card">
             <div className="card-body">
               <h5 className="card-title">Profit Information</h5>
               The more risk, the more profit is required.
-              3% profit is a good target in most cases for stock purchases.
+              <Textinput
+                label='Profit percentage'
+                placeholder='profit'
+                value={currentSettings.accountSize }
+                appendLabel={(<i className="fas fa-dollar-sign"></i>)}
+                onChange={(event) => { onChange(event, 'accountSize') } }
+              />
+              Again the more rish, the more return is required.
             </div>
           </div>
 
@@ -63,14 +76,58 @@ const Settings = ({onSave, currentSettings}) => {
             <div className="card-body">
               <h5 className="card-title">Commissions</h5>
 
-              Commissions for purchase stock
-              commissions for selling stock
+              <Textinput
+                label='Stock Purchase'
+                placeholder='Stock Purchase'
+                value={currentSettings.accountSize }
+                appendLabel={(<i className="fas fa-dollar-sign"></i>)}
+                onChange={(event) => { onChange(event, 'accountSize') } }
+              />
 
-              commissions for purchase option
-              commissions for selling option
+              <Textinput
+                label='Stock Sell'
+                placeholder='Stock Sell'
+                value={currentSettings.accountSize }
+                appendLabel={(<i className="fas fa-dollar-sign"></i>)}
+                onChange={(event) => { onChange(event, 'accountSize') } }
+              />
 
-              etf purchase commissions
-              etf sell commissions
+
+
+              <Textinput
+                label='Option Purchase'
+                placeholder='Option Purchase'
+                value={currentSettings.accountSize }
+                appendLabel={(<i className="fas fa-dollar-sign"></i>)}
+                onChange={(event) => { onChange(event, 'accountSize') } }
+              />
+
+
+              <Textinput
+                label='Option Sell'
+                placeholder='Stock Sell'
+                value={currentSettings.accountSize }
+                appendLabel={(<i className="fas fa-dollar-sign"></i>)}
+                onChange={(event) => { onChange(event, 'accountSize') } }
+              />
+
+
+              <Textinput
+                label='ETF Purchase'
+                placeholder='ETF Purchase'
+                value={currentSettings.accountSize }
+                appendLabel={(<i className="fas fa-dollar-sign"></i>)}
+                onChange={(event) => { onChange(event, 'accountSize') } }
+              />
+
+              <Textinput
+                label='ETF Purchase'
+                placeholder='ETF Purchase'
+                value={currentSettings.accountSize }
+                appendLabel={(<i className="fas fa-dollar-sign"></i>)}
+                onChange={(event) => { onChange(event, 'accountSize') } }
+              />
+
             </div>
           </div>
 

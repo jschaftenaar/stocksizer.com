@@ -11,7 +11,9 @@ const Size = ({
   position
 }) => {
   return (
-    <Content title='Size Position'>
+    <Content title='Size Position'
+      actionLabel='Reset'
+    >
       <form onSubmit={(event) => onAdd(event, position)}>
         <div className="card-columns">
           <PositionBasics/>
@@ -20,7 +22,7 @@ const Size = ({
         </div>
         <div className="form-group row">
           <div className="col-sm-2">
-            <button type="submit" className="btn btn-primary">Add Position</button>
+            <button type="submit" className="btn btn-primary"><i className="fas fa-plus-square"></i> Add Position</button>
           </div>
         </div>
       </form>

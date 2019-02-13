@@ -1,17 +1,34 @@
 import React from 'react';
 import Content from '../Content';
+import Textinput from '../Textinput';
 
 const Settings = ({onSave, currentSettings}) => {
+
+  const onChange = (event) => {
+    event.preventDefault();
+  }
+
   return (
-  	<Content title='Settings'>
+  	<Content title='Settings'
+      actionLabel='Reset'
+    >
       <form onSubmit={(event) => onSave(event, currentSettings)}>
         <div className="card-columns">
 
 
+
+
           <div className="card">
             <div className="card-body">
-              <h5 className="card-title">Account Size</h5>
-              account size:
+              <h5 className="card-title">Account Details</h5>
+              <Textinput
+                label='Account Size'
+                placeholder='Account Size'
+                value={currentSettings.accountSize }
+                appendLabel={(<i className="fas fa-dollar-sign"></i>)}
+                onChange={(event) => { onChange(event, 'accountSize') } }
+
+              />
             </div>
           </div>
 
@@ -59,11 +76,19 @@ const Settings = ({onSave, currentSettings}) => {
 
 
 
-
-
-
         </div>
+
+
+
+        <div className="form-group row">
+            <div className="col-sm-2">
+              <button type="submit" className="btn btn-primary"><i className="fas fa-save"></i> Save Settings</button>
+            </div>
+        </div>
+
       </form>
+
+
     </Content>
   );
 }

@@ -52,7 +52,7 @@ Input.propTypes = {
   onChange: PropTypes.func,
   actionLabel: PropTypes.node,
   onAction: PropTypes.func,
-  append: PropTypes.node
+  appendLabel: PropTypes.node
 };
 
 export default Input;

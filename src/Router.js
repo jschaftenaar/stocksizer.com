@@ -2,7 +2,7 @@ import React from "react";
 import {  Route } from "react-router-dom";
 import Overview from './Containers/Overview';
 import Size from './Containers/Size';
-import Settings from './Components/Settings';
+import Settings from './Containers/Settings';
 import Position from './Containers/Position';
 
 const Router = () => (

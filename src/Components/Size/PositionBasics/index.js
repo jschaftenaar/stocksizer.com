@@ -44,6 +44,7 @@ const PositionBasics = ({
           onChange={priceChange}
           value={price}
           placeholder='Price'
+          appendLabel={(<i className="fas fa-dollar-sign"></i>)}
         />
         <p>Use the ticker symbol to retrieve the latest market price from iex</p>        
       </div>

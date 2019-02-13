@@ -11,7 +11,11 @@ const Position = ({ticker, positionType, price, profit, stoploss, shares, commis
   }
 
   return (
-  	<Content title={ticker}>
+  	<Content
+      title={ticker}
+      actionLabel='Delete'
+
+      >
         <Radioinput
           value = {positionType}
           options = {[

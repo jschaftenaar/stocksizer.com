@@ -24,6 +24,7 @@ const PositionTotal = ({
           placeholder='Commissions'
           onChange={commissionsChange}
           value={commissions}
+          appendLabel={(<i className="fas fa-dollar-sign"></i>)}
         />
         <p className="card-text">Determine the position size, potential profit, and potential loses. To trade without commissions and increase your overal profits use <a href="https://share.robinhood.com/jeroens5" target="_blank" rel="noopener noreferrer">Robinhood</a></p>
       </div>

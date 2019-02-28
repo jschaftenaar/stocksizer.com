@@ -1,7 +1,6 @@
 import React from 'react'; // eslint-disable-line no-unused-vars
 import { connect } from 'react-redux';
 import PositionPercentages from '../../../Components/Size/PositionPercentages';
-import axios from 'axios';
 import { profitChange, stoplossChange } from '../../../Actions/Size';
 
 const  mapStateToProps = ({size}, {match}) => {

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { id as randomId} from '../../Utils/Random';
 
 const Radioinput = ({value, onChange, label, options}) => {
-
   const checks = options.map(option => {
     const id = randomId();
     return (

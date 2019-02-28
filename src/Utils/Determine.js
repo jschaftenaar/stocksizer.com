@@ -2,14 +2,14 @@ export const round = (value, decimals) => {
   return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
 }
 
-export const points = position => {
+export const points = (position, settings) => {
   const profitDelta = parseFloat(position.price)/100*parseFloat(position.profit);
   const stoplossDelta = parseFloat(position.price)/100*parseFloat(position.stoploss);
   const size = parseFloat(position.price)*parseFloat(position.shares);
   const cost = parseFloat(size)+parseFloat(position.commissions);
   let profitPrice = 0;
   let stoplossPrice = 0;
-  if (position.positionType=='short') {
+  if (position.positionType==='short') {
     profitPrice = parseFloat(position.price)-profitDelta;
     stoplossPrice = parseFloat(position.price)+stoplossDelta
   } else {

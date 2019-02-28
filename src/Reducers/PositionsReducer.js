@@ -1,4 +1,4 @@
-import { Positions, Size } from '../Actions';
+import { Size } from '../Actions';
 import { uuid } from '../Utils/Random';
 
 const PositionsReducer = (

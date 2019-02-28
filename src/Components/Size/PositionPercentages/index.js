@@ -1,7 +1,5 @@
 import React from 'react';
-import style from './style.module.scss';
 import Textinput from '../../Textinput';
-import Radioinput from '../../Radioinput';
 
 const PositionPercentages = ({
   profitChange,

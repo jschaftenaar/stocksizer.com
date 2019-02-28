@@ -1,7 +1,6 @@
 import React from 'react'; // eslint-disable-line no-unused-vars
 import { connect } from 'react-redux';
 import Size from '../../Components/Size';
-import axios from 'axios';
 import { addToPositions } from '../../Actions/Size';
 
 const mapStateToProps = ({size, settings}) => {

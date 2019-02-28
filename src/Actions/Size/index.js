@@ -1,6 +1,5 @@
 import { Size } from '..';
 
-/* Action creators */
 export const positionTypeChange = positionType => ({
   type: Size.POSITION_TYPE_CHANGE,
   positionType

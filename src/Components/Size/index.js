@@ -3,7 +3,6 @@ import Content from '../Content';
 import PositionBasics from '../../Containers/Size/PositionBasics';
 import PositionPercentages from '../../Containers/Size/PositionPercentages';
 import PositionTotal from '../../Containers/Size/PositionTotal';
-import style from './Size.module.scss';
 import PropTypes from 'prop-types';
 
 const Size = ({

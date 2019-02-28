@@ -1,7 +1,6 @@
 import React from 'react'; // eslint-disable-line no-unused-vars
 import { connect } from 'react-redux';
 import PositionTotal from '../../../Components/Size/PositionTotal';
-import axios from 'axios';
 import { 
   sharesChange,
   commissionsChange,

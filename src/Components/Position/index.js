@@ -1,6 +1,5 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import style from './style.module.scss';
 import Content from '../Content';
 import Textinput from '../Textinput';
 import Radioinput from '../Radioinput';

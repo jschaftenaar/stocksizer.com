@@ -1,5 +1,4 @@
 import React from 'react';
-import style from './style.module.scss';
 import Textinput from '../../Textinput';
 import Tooltip from '../../Tooltip';
 

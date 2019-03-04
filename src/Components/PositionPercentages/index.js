@@ -1,5 +1,5 @@
 import React from 'react';
-import Textinput from '../../Textinput';
+import Textinput from '../Textinput';
 
 const PositionPercentages = ({
   profitChange,

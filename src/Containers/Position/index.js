@@ -7,14 +7,15 @@ function mapStateToProps(state, {match}) {
   const position = state.positions.find(item => {
     return item.uuid === match.params.uuid;
   });
+
   const settings = Object.assign({}, state.settings);
   if (settings.hasOwnProperty('currentSettings')) {
     delete settings.currentSettings;
   }
   const points = calcPoints(position, settings);
+
   return {
-    ...position,
-    settings,
+    position,
     points
   }
 }

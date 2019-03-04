@@ -1,6 +1,6 @@
 import React from 'react';
-import Textinput from '../../Textinput';
-import Tooltip from '../../Tooltip';
+import Textinput from '../Textinput';
+import Tooltip from '../Tooltip';
 
 const PositionTotal = ({
   shares,
@@ -25,25 +25,22 @@ const PositionTotal = ({
         <div className="form-group row">
           <label className="col-sm-6 col-form-label">
             Minimum shares for profit
-            <Tooltip content='Minimum nr of shares to offset commissions'>
+            <Tooltip content={(<div>Minimum number of shares to make a profit,<br/>this also takes any commissions into account.</div>)}>
               <i className="fas fa-info-circle"></i>
             </Tooltip>
           </label>
           <div className="col-sm-6 input-group">10</div>
         </div>
-
 
         <div className="form-group row">
           <label className="col-sm-6 col-form-label">
             Maximum shares for account size
-            <Tooltip content='based on combination of position stop loss, account size and account max loss.'>
+            <Tooltip content={(<div>Depending on your account size, and overal acceptable account<br/> loss this is the maximum number of shares you should purchase.</div>)}>
               <i className="fas fa-info-circle"></i>
             </Tooltip>
           </label>
           <div className="col-sm-6 input-group">10</div>
         </div>
-
-
 
         <Textinput
           label='Shares'

@@ -2,10 +2,13 @@ import React from 'react';
 import style from './Content.module.scss';
 import { PropTypes } from 'prop-types';
 
-const Content = ({title, children, actionLabel, onAction, actionType}) => {
+const Content = ({title, children, actionLabel, onAction, actionType, actionIcon}) => {
   let action = '';
   if (actionLabel) {
-    action = (<button className="btn btn-danger float-right" type="button" onClick={onAction}>{actionLabel}</button>);
+    const icon = actionIcon
+      ? (<i className={['fas',actionIcon].join(' ')}></i>)
+      : '';
+    action = (<button className={['btn','btn-'+actionType,'float-right'].join(' ')} type="button" onClick={onAction}>{icon}{actionLabel}</button>);
   }
   return (
     <div className={style.wrapper}>
@@ -19,7 +22,8 @@ Content.defaultProps = {
   title: '',
   actionLabel: '',
   onAction: () => {},
-  actionType: ''
+  actionType: 'danger',
+  actionIcon: ''
 };
 
 Content.propTypes = {
@@ -30,6 +34,7 @@ Content.propTypes = {
     PropTypes.node
   ]).isRequired,
   onAction: PropTypes.func,
+  actionIcon: PropTypes.string,
   actionType: PropTypes.string
 };
 

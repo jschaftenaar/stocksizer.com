@@ -4,12 +4,47 @@
   background-color: $color-background-inverse;
   height: 50px;
   color: white;
-  text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
 .title {
   color: $color-text-placeholder;
   font-size: 1.5em;
   line-height: 50px;
-  vertical-align: center;
+  margin: 0px;
+  text-align: center;
+
+  &:hover {
+    color: $color-hover-text;
+
+    .icon_front {
+      animation: spin 2s infinite linear;
+    }
+  }
+}
+
+
+.icon_back {
+  color: $color-text-support;
+  font-size: 1.3em;
+}
+
+.icon_middle {
+  color: $color-text-inverse;
+}
+
+.icon_front {
+  color: $color-hover;
+  font-size: 1em;
+  transform: rotate(-45deg);
+}
+
+@keyframes spin{
+  from {
+    transform: rotate(-45deg);
+  }
+  to {
+    transform: rotate(315deg);
+  }
 }

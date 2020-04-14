@@ -1,0 +1,5 @@
+Host stocksizer
+  HostName host.416.amsdfw.us
+  User git
+  IdentityFile ~/.ssh/id_rsa.stocksizer
+  IdentitiesOnly yes

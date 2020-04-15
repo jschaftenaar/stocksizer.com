@@ -28,6 +28,6 @@ jobs:
     - run: npm run build
     - shell: bash
       env:
-        CF_API_KEY: ${{ secrets.STOCKSIZERKEY }}
+        STOCKSIZERKEY: ${{ secrets.STOCKSIZERKEY }}
       run: |
         ./dokkudeploy.sh $GITHUB_REF $STOCKSIZERKEY

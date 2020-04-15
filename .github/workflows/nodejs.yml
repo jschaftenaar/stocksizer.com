@@ -30,4 +30,4 @@ jobs:
       env:
         CF_API_KEY: ${{ secrets.STOCKSIZERKEY }}
       run: |
-        ./dokkudeploy.sh
+        ./dokkudeploy.sh $GITHUB_REF $STOCKSIZERKEY

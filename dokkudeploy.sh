@@ -1,5 +1,7 @@
 #!/bin/bash
 
+ls -la
+
 echo "The branch is:"
 echo "$1"
 

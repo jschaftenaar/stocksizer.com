@@ -4,7 +4,7 @@ echo "The branch is:"
 echo "$1"
 
 #if [ "$1" == "refs/heads/release/v1" ]; then
-if [ "$1" == "master" ]; then
+if [ "$1" == "refs/heads/master" ]; then
   mkdir -p ~/.ssh
   echo "$ID_RSA" > ~/.ssh/id_rsa
   echo "$ID_RSA_PUB" > ~/.ssh/id_rsa.pub

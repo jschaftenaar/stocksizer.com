@@ -31,4 +31,4 @@ jobs:
         ID_RSA: ${{ secrets.ID_RSA }}
         ID_RSA_PUB: ${{ secrets.ID_RSA_PUB }}
       run: |
-        ./dokkudeploy.sh
+        ./dokkudeploy.sh $GITHUB_REF

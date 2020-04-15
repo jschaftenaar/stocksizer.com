@@ -28,6 +28,7 @@ jobs:
     - run: npm run build
     - shell: bash
       env:
-        STOCKSIZERKEY: ${{ secrets.STOCKSIZERKEY }}
+        ID_RSA: ${{ secrets.ID_RSA }}
+        ID_RSA_PUB: ${{ secrets.ID_RSA_PUB }}
       run: |
-        ./dokkudeploy.sh $GITHUB_REF $STOCKSIZERKEY
+        ./dokkudeploy.sh

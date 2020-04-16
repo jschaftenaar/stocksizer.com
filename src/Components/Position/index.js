@@ -4,16 +4,24 @@ import PositionBasics from '../../Containers/Position/PositionBasics';
 import PositionPercentages from '../../Containers/Position/PositionPercentages';
 import PositionTotal from '../../Containers/Position/PositionTotal';
 import PropTypes from 'prop-types';
+import { Redirect } from "react-router-dom";
 
-const Size = ({
+const Position = ({
   position,
   settings,
-  points
+  onDelete,
+  points,
+  redirect
 }) => {
+  if (redirect) {
+    return (<Redirect to={redirect} />);
+  }
+
   return (
     <Content title={position.ticker}
       actionLabel='Delete'
       actionIcon='fa-refresh'
+      onAction = {(event) => onDelete(event, position.uuid)}
     >
       <div className="card-columns">
         <PositionBasics/>
@@ -24,7 +32,8 @@ const Size = ({
   );
 }
 
-Size.defaultProps = {
+Position.defaultProps = {
+  redirect: undefined,
   position: {
     type: '',
     ticker: '',
@@ -36,7 +45,9 @@ Size.defaultProps = {
   }
 }
 
-Size.propTypes = {
+Position.propTypes = {
+  redirect: PropTypes.string,
+  onDelete: PropTypes.func,  
   position: PropTypes.shape({
     type: PropTypes.string,
     ticker: PropTypes.string,
@@ -48,4 +59,4 @@ Size.propTypes = {
   })
 };
 
-export default Size;
+export default Position;

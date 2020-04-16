@@ -1,25 +1,46 @@
 import React from 'react';
 import Textinput from '../Textinput';
 import Tooltip from '../Tooltip';
+import Radioinput from '../Radioinput';
 
 const PositionTotal = ({
   shares,
   commissions,
   commissionsChange,
-  sharesChange
+  sharesChange,
+  commissionsType,
+  commissionsTypeChange,
+  minimumShares,
+  maximumShares
 }) => {
+  const commissionsTypIcon = commissionsType == 'monetary'
+    ? (<i className="fas fa-dollar-sign"></i>)
+    : (<i className="fas fa-percentage"></i>)
   return (
     <div className="card">
       <div className="card-body">
         <h5 className="card-title">Commission &amp; Shares</h5>
         <h6 className="card-subtitle mb-2 text-muted">Set shares count and commission amount</h6>
-        
+        <Radioinput
+          value = {commissionsType}
+          options = {[
+            {
+              value: 'monetary',
+              label: 'Monetary'
+            }, {
+              value: 'percentage',
+              label: 'Percentage'
+            }
+          ]}
+          onChange={commissionsTypeChange}
+          label='Commissions Type'
+        />
         <Textinput
           label='Commissions'
           placeholder='Commissions'
           onChange={commissionsChange}
           value={commissions}
-          appendLabel={(<i className="fas fa-dollar-sign"></i>)}
+          appendLabel={commissionsTypIcon}
         />
 
         <div className="form-group row">
@@ -29,7 +50,7 @@ const PositionTotal = ({
               <i className="fas fa-info-circle"></i>
             </Tooltip>
           </label>
-          <div className="col-sm-6 input-group">10</div>
+          <div className="col-sm-6 input-group">{minimumShares}</div>
         </div>
 
         <div className="form-group row">
@@ -39,9 +60,8 @@ const PositionTotal = ({
               <i className="fas fa-info-circle"></i>
             </Tooltip>
           </label>
-          <div className="col-sm-6 input-group">10</div>
+          <div className="col-sm-6 input-group">{maximumShares}</div>
         </div>
-
         <Textinput
           label='Shares'
           placeholder='Shares'
@@ -53,5 +73,16 @@ const PositionTotal = ({
   </div>
   );
 };
+
+PositionTotal.defaultProps = {
+  commissions: '',
+  shares: '',
+  commissionsType: 'monetary',
+  minimumShares: '',
+  maximumShares: '',
+  commissionsTypeChange: () => {},
+  commissionsChange: () => {},
+  sharesChange: () => {}
+}
 
 export default PositionTotal;

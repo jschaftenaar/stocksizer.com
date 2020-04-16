@@ -46,7 +46,7 @@ const PositionBasics = ({
           placeholder='Price'
           appendLabel={(<i className="fas fa-dollar-sign"></i>)}
         />
-        <p>Use the ticker symbol to retrieve the latest market price from iex</p>        
+        <p>Use the ticker symbol to retrieve the latest market price from alpaca/iex</p>        
       </div>
     </div>
   );
@@ -58,7 +58,7 @@ PositionBasics.defaultProps = {
   tickerChange: () => {},
   price: '',
   ticker: '',
-  positionType: ''
+  positionType: 'long'
 };
 
 PositionBasics.propTypes = {

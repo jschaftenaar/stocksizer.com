@@ -1,27 +1,32 @@
 import React from 'react'; // eslint-disable-line no-unused-vars
 import { connect } from 'react-redux';
 import Size from '../../Components/Size';
-import { addToPositions } from '../../Actions/Size';
-import { points as calcPoints } from '../../Utils/Determine';
+import { addSize } from '../../Actions/Positions';
+import { reset } from '../../Actions/Size';
 
-const mapStateToProps = ({size, settings}) => {
+const mapStateToProps = ({size, settings, positions}) => {
+  const isStored = positions.find(item => {
+    return item.uuid === size.uuid;
+  });
 
-  if (settings.hasOwnProperty('currentSettings')) {
-    delete settings.currentSettings;
+  if (isStored) {
+    return { redirect: `/position/${size.uuid}`};
   }
-  const points = calcPoints(size, settings);
 
   return {
     position: size,
-    points
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    onAdd: (event, position) => {
+    onAdd: (event, size) => {
       event.preventDefault();
-      dispatch(addToPositions(position))
+      dispatch(addSize(size));
+      dispatch(reset());
+    },
+    onReset: (event) => {
+      dispatch(reset());
     }
   }
 };

@@ -15,11 +15,6 @@ export const priceChange = price => ({
   price
 });
 
-export const addToPositions = (position) => ({
-  type: Size.ADD_TO_POSITIONS,
-  position
-});
-
 export const profitChange = profit => ({
   type: Size.PROFIT_CHANGE,
   profit
@@ -39,3 +34,17 @@ export const sharesChange = shares => ({
   type: Size.SHARES_CHANGE,
   shares
 });
+
+export const commissionsTypeChange = commissionsType => ({ 
+  type: Size.COMMISSIONS_TYPE_CHANGE,
+  commissionsType
+});
+
+export const reset = () => {
+  return {
+    type: Size.RESET
+  }
+}
+
+
+

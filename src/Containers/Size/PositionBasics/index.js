@@ -23,10 +23,11 @@ const mapDispatchToProps = dispatch => {
     priceChange: event => preventDefaultDispatch(event, priceChange(event.target.value)),
     onAction: (event, ticker) => {
       event.preventDefault();
-      const url = `https://api.iextrading.com/1.0/stock/${ticker.toUpperCase()}/price`;
+      const url = `/data/ticker/${ticker.toUpperCase()}`;
       axios.get(url)
         .then(response => {
-          dispatch(priceChange(response.data.toString()));
+          const price = response.data.price.toString();
+          dispatch(priceChange(price));
       });
     }
   }

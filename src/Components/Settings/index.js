@@ -8,6 +8,9 @@ const Settings = ({
   currentSettingChange,
   accountSize,
   profitPercentage,
+  accountRiskLimit,
+  defaultTakeProfitPercentage,
+  defaultStoplossPercentage,
   accountStoplossPercentage,
   positionStoplossPercentage,
   stockPurchaseCommission,
@@ -27,39 +30,32 @@ const Settings = ({
                 appendLabel={(<i className="fas fa-dollar-sign"></i>)}
                 onChange={(event) => { currentSettingChange(event, 'accountSize') } }
               />
-            </div>
-          </div>
-          <div className="card">
-            <div className="card-body">
-              <h5 className="card-title">Stop loss</h5>
               <Textinput
-                label='Account Stop loss percentage'
-                placeholder='account stop loss'
-                value={accountStoplossPercentage}
-                appendLabel={(<i className="fas fa-dollar-sign"></i>)}
-                onChange={(event) => { currentSettingChange(event, 'accountStoplossPercentage') } }
-              />
-              <Textinput
-                label='Position Stop loss percentage'
-                placeholder='position stop loss'
-                value={positionStoplossPercentage}
-                appendLabel={(<i className="fas fa-dollar-sign"></i>)}
-                onChange={(event) => { currentSettingChange(event, 'positionStoplossPercentage') } }
+                label='Account Risk Limit'
+                placeholder='Account Risk Limit'
+                value={accountRiskLimit}
+                appendLabel={(<i className="fas fa-percentage"></i>)}
+                onChange={(event) => { currentSettingChange(event, 'accountRiskLimit') } }
               />
             </div>
           </div>
           <div className="card">
             <div className="card-body">
-              <h5 className="card-title">Profit Information</h5>
-              The more risk, the more profit is required.
+              <h5 className="card-title">Default Entry/Exit</h5>
               <Textinput
-                label='Profit percentage'
-                placeholder='profit'
-                value={profitPercentage}
-                appendLabel={(<i className="fas fa-dollar-sign"></i>)}
-                onChange={(event) => { currentSettingChange(event, 'profictPercentage') } }
+                label='Take Profit Percentage'
+                placeholder='Take Profit'
+                value={defaultTakeProfitPercentage}
+                appendLabel={(<i className="fas fa-percentage"></i>)}
+                onChange={(event) => { currentSettingChange(event, 'defaultTakeProfitPercentage') } }
               />
-              Again the more risk, the more return is required.
+              <Textinput
+                label='Stop Loss Percentage'
+                placeholder='Stop Loss'
+                value={defaultStoplossPercentage}
+                appendLabel={(<i className="fas fa-percentage"></i>)}
+                onChange={(event) => { currentSettingChange(event, 'defaultStoplossPercentage') } }
+              />
             </div>
           </div>
           <div className="card">

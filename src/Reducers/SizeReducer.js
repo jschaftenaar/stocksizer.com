@@ -14,8 +14,12 @@ const SettingsReducer = (state = Size.initialState, action) => {
       return Object.assign({}, state, { stoploss: action.stoploss });
     case Size.SHARES_CHANGE:
       return Object.assign({}, state, { shares: action.shares });
+    case Size.COMMISSIONS_TYPE_CHANGE:
+      return Object.assign({}, state, { commissionsType: action.commissionsType });
     case Size.COMMISSIONS_CHANGE:
       return Object.assign({}, state, { commissions: action.commissions });
+    case Size.RESET:
+      return Object.assign({}, Size.initialState);
     default:
       return state;
   }

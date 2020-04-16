@@ -11,7 +11,7 @@ const PositionPercentages = ({
   return (
     <div className="card">
       <div className="card-body">
-        <h5 className="card-title">Profit/Stop Loss Percentages</h5>
+        <h5 className="card-title">Entry/Exit Percentages</h5>
         <h6 className="card-subtitle mb-2 text-muted">Set your profit and stop loss percentages</h6>
 
         <Textinput

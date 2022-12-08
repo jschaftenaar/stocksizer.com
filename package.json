@@ -10,7 +10,7 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "axios": "^0.21.1",
-    "express": "^4.17.1"
+    "express": "^4.17.3"
   },
   "scripts": {
     "react": "react-scripts start",
